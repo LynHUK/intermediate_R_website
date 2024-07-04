@@ -9,8 +9,9 @@ knitr::opts_chunk$set(echo = FALSE)
 library(webexercises)
 ```
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/JfWm-ECqXts?si=RdseoRHMFwtoO9ON" data-external= "1" > </iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JfWm-ECqXts?si=RdseoRHMFwtoO9ON" data-external="1" allowfullscreen>
 
+</iframe>
 
 ## Test your understanding
 
@@ -19,23 +20,16 @@ library(webexercises)
 #style_widgets(incorrect = "goldenrod", correct = "purple")
 ```
 
-What is the total attendance across the 5 rows with the lowest attendances?
-`r fitb(15)`
+What is the total attendance across the 5 rows with the lowest attendances? `r fitb(15)`
 
 `r hide("See a hint")`
 
-Use ?slice to look at the help file to find the function you need to get a small dataframe of the 5 rows with the lowest attendance. You can then use sum() to get the total of the attendances column.
+Use **?slice** to look at the help file to find the function you need to get a small dataframe of the 5 rows with the lowest attendance. You can then use **sum()** to get the total of the attendances column.
 
 `r unhide()`
-
-
-
 
 ```{r, echo = TRUE, eval = FALSE, webex.hide = "Click here to see an explanation"}
 q1_df<- slice_min(data, n=5, order_by = breaches)
 
 sum(q1_df$attendances) # This will give the answer = 15
 ```
-
-
-

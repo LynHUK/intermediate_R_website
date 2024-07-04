@@ -1,5 +1,5 @@
 ---
-title: "Intermediate R course, part 3"
+title: "Intermediate R course, part 4"
 output: webexercises::webexercises_default
 ---
 
@@ -8,7 +8,7 @@ knitr::opts_chunk$set(echo = FALSE)
 library(webexercises)
 ```
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/YifxXKF9IJs?si=ZupovjfdzPN9YiKR" data-external= "1" > </iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YifxXKF9IJs?si=ZupovjfdzPN9YiKR" data-external= "1" allowfullscreen> </iframe>
 
 
 ## Test your understanding
