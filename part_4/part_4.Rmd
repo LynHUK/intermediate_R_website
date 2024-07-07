@@ -1,0 +1,47 @@
+---
+title: "Intermediate R course, part 4"
+output: webexercises::webexercises_default
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(webexercises)
+```
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YifxXKF9IJs?si=ZupovjfdzPN9YiKR" data-external= "1" allowfullscreen> </iframe>
+
+
+## Test your understanding
+
+```{r, echo = FALSE, results='asis'}
+# Uncomment to change widget colours:
+#style_widgets(incorrect = "goldenrod", correct = "purple")
+```
+
+Which expression will produce a dataframe with columns in the order admissions, any columns that are factors, then anything else?
+
+```{r}
+opts_p <- c("a. data |>  select(admissions, factors, everything())", 
+            "b. data |>  select(admissions, factors, anything_else())", 
+            "c. data |>  select(admissions, where(is.factor), anything_else())
+",
+            answer = "d. data |>  select(admissions, where(is.factor), everything())"
+            )
+```
+
+`r longmcq(opts_p)`
+
+`r hide("See a hint")`
+
+HINT GOES HERE
+
+`r unhide()`
+
+
+
+
+```{r, echo = TRUE, eval = FALSE, webex.hide = "Click here to see an explanation"}
+EXPLANATION GOES HERE
+```
+
+

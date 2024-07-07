@@ -460,8 +460,94 @@ display: none;
 </div>
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/JfWm-ECqXts?si=RdseoRHMFwtoO9ON" data-external="1">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JfWm-ECqXts?si=RdseoRHMFwtoO9ON" data-external="1" allowfullscreen>
 </iframe>
+<div id="transcript-and-code" class="section level2">
+<h2>Transcript and code</h2>
+<p>We&#39;re going to start with recapping some base R and dplyr functions
+that you may have already come across. Dplyr is part of the tidyverse,
+so I&#39;m loading that, and also the NHSRdatasets package, which includes
+the data we&#39;re going to use. To run multiple lines of code in the source
+pane we can select the rows we want &amp; press Ctrl + Enter.</p>
+<pre class="r"><code>library(tidyverse)
+library(NHSRdatasets)</code></pre>
+<p>Next we load some data for attendances at Accident &amp; Emergency
+(A&amp;E ) To run a single line of code we can position the cursor
+anywhere in the line and use Ctrl + Enter.</p>
+<pre class="r"><code>data &lt;- ae_attendances</code></pre>
+<p>In the environment panel in the top right corner, by clicking the
+blue arrow we can see the structure of the dataframe -- over 12,000 rows
+of 6 columns, and it tells us the data type of those columns. We can
+also click on the symbol on the right which opens the dataframe in a tab
+in the source pane. To get the names of the columns in a dataframe we
+can use either <strong>colnames()</strong> or <strong>names()</strong>
+function.</p>
+<p>Since we&#39;re working with a dataframe, they both give the same
+output.</p>
+<pre class="r"><code>colnames(data)      # works on matrices and data frames
+names(data)         # works on vectors and data frames</code></pre>
+<p>Using dataframe name $ column name will return the content of that
+column, but especially when it&#39;s a long column, it can be more useful to
+just find the unique data items. Now we can see there are 274 unique
+entries in that column.</p>
+<pre class="r"><code># using $ sign to select a column
+data$type
+
+# get list of unique data items in a variable
+unique(data$org_code)</code></pre>
+<p>If you know the position of a specific entry you want to retrieve,
+you can use square brackets. For a range of entries using the colon. *If
+you&#39;re coming to R with a knowledge of python, note that R starts
+counting from 1, not zero.</p>
+<pre class="r"><code># we can select a specific entry within that vector with square brackets
+# to call the 4th entry we can use
+data$type[4]
+
+# we could also call the 4th to 10th entries
+data$type[4:10]</code></pre>
+<p><strong>range()</strong> is a really useful function for working with
+numeric or character data, returning the maximum and minimum values.</p>
+<pre class="r"><code># get the range of a variable (useful for dates)
+range(data$period)</code></pre>
+<p><strong>str()</strong> function shows you the structure of the
+dataframe, the same as you can see in the environment, but returns it as
+an output down in the console.</p>
+<pre class="r"><code># see structure of data to check data types
+str(data)</code></pre>
+<p>The head &amp; tail functions allow you to see a snippet of the
+dataframe, by default head() returns the first 5 rows and tail() the
+last 5 rows. By adding a number after the data source we can change that
+and return however many rows we’d like to see.</p>
+<pre class="r"><code># see the first 5 rows of data
+head(data)
+
+# see the last 5 rows of data
+tail(data)
+
+# see the first 15 rows of data
+head(data, 
+     15)</code></pre>
+<p>Dplyr has a group of similar functions called slice_. Not only can
+you get a number of rows, you can also choose a proportion. If you want
+to order the dataframe by a different column, you can add
+<strong>order_by = </strong>.</p>
+<pre class="r"><code># see the first 15 rows of data 
+dplyr::slice_head(data, 
+      n = 15)
+
+# see the first 15% of total rows of data 
+slice_head(data,
+           prop = .15)
+
+# see the first 15% of total rows of data
+# ordered by attendances
+slice_max(data, 
+         prop = .15, 
+         order_by = attendances)</code></pre>
+<p>There’s lots more information on the various slice_ functions in the
+help file, which you can access using <strong>?slice</strong> in the
+console pane.</p>
+</div>
 <div id="test-your-understanding" class="section level2">
 <h2>Test your understanding</h2>
 <p>What is the total attendance across the 5 rows with the lowest
@@ -471,9 +557,10 @@ attendances?
 <button>
 See a hint
 </button>
-<p>Use ?slice to look at the help file to find the function you need to
-get a small dataframe of the 5 rows with the lowest attendance. You can
-then use sum() to get the total of the attendances column.</p>
+<p>Use <strong>?slice</strong> to look at the help file to find the
+function you need to get a small dataframe of the 5 rows with the lowest
+attendance. You can then use <strong>sum()</strong> to get the total of
+the attendances column.</p>
 </div>
 <div class="webex-solution">
 <button>

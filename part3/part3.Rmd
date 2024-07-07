@@ -1,0 +1,42 @@
+---
+title: "Intermediate R course, part 3"
+output: webexercises::webexercises_default
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(webexercises)
+```
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lzRmRcBVhZA?si=6ofhWnFE4xaLtw1n" data-external="1" allowfullscreen>
+
+</iframe>
+
+## Test your understanding
+
+```{r, echo = FALSE, results='asis'}
+# Uncomment to change widget colours:
+#style_widgets(incorrect = "goldenrod", correct = "purple")
+```
+
+Which expression will change the column name from "number of breaches" to "breaches"?
+
+```{r}
+opts_p <- c("a. rename(number of breaches = breaches)", 
+            "b. rename(`number of breaches` to `breaches`)", 
+            answer = "c. rename(breaches = `number of breaches`)",
+            "d. name(breaches = `number of breaches`)"
+            )
+```
+
+`r longmcq(opts_p)`
+
+`r hide("See a hint")`
+
+Use **?rename** to look at the help file. You need to include ` ` around any name with spaces included
+
+`r unhide()`
+
+```{r, echo = TRUE, eval = FALSE, webex.hide = "Click here to see an explanation"}
+The function we need is rename(new_name = old_name) with ` ` around any name with spaces included.
+```
