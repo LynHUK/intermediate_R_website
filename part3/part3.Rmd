@@ -33,7 +33,7 @@ opts_p <- c("a. rename(number of breaches = breaches)",
 
 `r hide("See a hint")`
 
-Use **?rename** to look at the help file. You need to include ` ` around any name with spaces included
+Use **?rename** to look at the help file. You need to include ' ' around any name with spaces included
 
 `r unhide()`
 
