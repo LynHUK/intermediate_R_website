@@ -23,9 +23,9 @@ Which expression will change the column name from "number of breaches" to "breac
 
 ```{r}
 opts_p <- c("a. rename(number of breaches = breaches)", 
-            "b. rename(`number of breaches` to `breaches`)", 
-            answer = "c. rename(breaches = `number of breaches`)",
-            "d. name(breaches = `number of breaches`)"
+            "b. rename('number of breaches' to 'breaches')", 
+            answer = "c. rename(breaches = 'number of breaches')",
+            "d. name(breaches = 'number of breaches')"
             )
 ```
 
@@ -33,7 +33,7 @@ opts_p <- c("a. rename(number of breaches = breaches)",
 
 `r hide("See a hint")`
 
-Use **?rename** to look at the help file. You need to include ` ` around any name with spaces included
+Use **?rename** to look at the help file. You need to include ' ' around any name with spaces included
 
 `r unhide()`
 
