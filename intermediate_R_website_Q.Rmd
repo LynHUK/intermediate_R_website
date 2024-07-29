@@ -1,0 +1,30 @@
+---
+title: ""
+output: html_document
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+library(webexercises)
+```
+
+## Test your understanding
+
+```{r, echo = FALSE, results='asis'}
+# Uncomment to change widget colours:
+#style_widgets(incorrect = "goldenrod", correct = "purple")
+```
+
+What is the total attendance across the 5 rows with the lowest attendances? `r fitb(15)`
+
+`r hide("See a hint")`
+
+Use **?slice** to look at the help file to find the function you need to get a small dataframe of the 5 rows with the lowest attendance. You can then use **sum()** to get the total of the attendances column.
+
+`r unhide()`
+
+```{r, echo = TRUE, eval = FALSE, webex.hide = "Click here to see an explanation"}
+q1_df<- slice_min(data, n=5, order_by = breaches)
+
+sum(q1_df$attendances) # This will give the answer = 15
+```
