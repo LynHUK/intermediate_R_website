@@ -460,18 +460,55 @@ display: none;
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lzRmRcBVhZA?si=6ofhWnFE4xaLtw1n" data-external="1" allowfullscreen>
 </iframe>
+<div id="transcript-and-code" class="section level2">
+<h2>Transcript and code</h2>
+<p>Summary is a useful function for giving you an overview of your data.
+If we run that line we can see the output down in the console. For the
+columns which are numeric we have the minimum and maximum values, 1st
+and 3rd quartile, median and mean. For columns with categorical data it
+will show the count for the first few rows and then a total for how many
+are in other categories. If there were any missing values in our dataset
+it would tell us that as well. For a quick overview of a single column
+of categorical data, we can use the table function.</p>
+<pre class="r"><code>summary(data)
+
+table (data$type)</code></pre>
+<p>If you’re working with data that you’ve imported from a spreadsheet
+created in Excel, you’ll often find that people have included spaces or
+used capital letters in the column names. This is something that you can
+change manually, using the function rename(), which takes the order
+rename(new_name = old_name) For changing multiple columns, it’s much
+easier to use a function from the janitor package.</p>
+<pre class="r"><code>data &lt;- data |&gt;
+  rename(`Organisation Code` = org_code)
+
+data &lt;- data |&gt;
+  rename(Breaches = breaches,
+         PERIOD = period,
+         ` type` = type)
+
+library(janitor)
+# if this is not installed, install it manually
+
+data &lt;- clean_names(data)</code></pre>
+<p>The Janitor package has other helpful functions, including to change
+the format of dates, remove empty rows, or find duplicate rows. To look
+at what’s available type ?janitor in the console. If we scroll down to
+the bottom of the help pane and click on index, we can see the full list
+of functions in the package.</p>
+</div>
 <div id="test-your-understanding" class="section level2">
 <h2>Test your understanding</h2>
 <p>Which expression will change the column name from &quot;number of
 breaches&quot; to &quot;breaches&quot;?</p>
-<div id="radio_UELGKOOUWJ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_UELGKOOUWJ" value></input>
+<div id="radio_DUVKQYHONA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_DUVKQYHONA" value></input>
 <span>a. rename(number of breaches =
-breaches)</span></label><label><input type="radio" autocomplete="off" name="radio_UELGKOOUWJ" value></input>
+breaches)</span></label><label><input type="radio" autocomplete="off" name="radio_DUVKQYHONA" value></input>
 <span>b. rename(&#39;number of breaches&#39; to
-&#39;breaches&#39;)</span></label><label><input type="radio" autocomplete="off" name="radio_UELGKOOUWJ" value="answer"></input>
+&#39;breaches&#39;)</span></label><label><input type="radio" autocomplete="off" name="radio_DUVKQYHONA" value="answer"></input>
 <span>c. rename(breaches = &#39;number of
-breaches&#39;)</span></label><label><input type="radio" autocomplete="off" name="radio_UELGKOOUWJ" value></input>
+breaches&#39;)</span></label><label><input type="radio" autocomplete="off" name="radio_DUVKQYHONA" value></input>
 <span>d. name(breaches = &#39;number of breaches&#39;)</span></label>
 </div>
 <div class="webex-solution">
@@ -479,7 +516,7 @@ breaches&#39;)</span></label><label><input type="radio" autocomplete="off" name=
 See a hint
 </button>
 <p>Use <strong>?rename</strong> to look at the help file. You need to
-include <code></code> around any name with spaces included</p>
+include &#39; &#39; around any name with spaces included</p>
 </div>
 <div class="webex-solution">
 <button>
